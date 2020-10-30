@@ -27,13 +27,13 @@ const createServer = () => {
 
         const { body } = req
 
-        const resultado2 = new Movies(body)
+        const resultado2 = new Movies(JSON.parse(body))
 
         await resultado2.save()
-        res.sendStatus(204)
+        res.send(resultado2._id)
     })
 
-    app.get('/movies/:id/daralta', async (req, res) => {
+    app.get('/movies/:id/darbaja', async (req, res) => {
 
         const {id} = req.params
         
